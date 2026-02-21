@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* optional: cleaner body */
+body {
+  @apply bg-slate-950 text-white;
+}
