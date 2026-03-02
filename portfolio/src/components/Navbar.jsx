@@ -16,6 +16,7 @@ function Navbar() {
     { name: "About", to: "about" },
     { name: "Skills", to: "skills" },
     { name: "Projects", to: "projects" },
+    { name: "Experience", to: "experience" },
     { name: "Contact", to: "contact" },
   ]
 
@@ -42,7 +43,7 @@ function Navbar() {
                 smooth={true}
                 spy={true}
                 duration={500}
-                offset={-80}
+                offset={-90}
                 activeClass="text-indigo-400"
                 className="cursor-pointer text-gray-300 hover:text-indigo-400 transition duration-300"
               >
@@ -79,7 +80,7 @@ function Navbar() {
                     smooth={true}
                     spy={true}
                     duration={500}
-                    offset={-80}
+                    offset={-90}
                     onClick={() => setIsOpen(false)}
                     activeClass="text-indigo-400"
                     className="cursor-pointer text-gray-300 hover:text-indigo-400 transition duration-300 text-lg"

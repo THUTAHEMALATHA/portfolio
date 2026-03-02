@@ -15,9 +15,10 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <Experience />
       <Contact />
       <Footer />
-      <Experience />
+     
     </>
   )
 }

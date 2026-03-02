@@ -50,41 +50,66 @@ function Skills() {
         </motion.h2>
 
         {/* Skills Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="
-            grid
-            grid-cols-3
-            sm:grid-cols-4
-            md:grid-cols-6
-            gap-6
-            justify-items-center
-          "
-        >
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="
-                flex flex-col items-center gap-2
-                p-4 rounded-xl
-                bg-slate-900/60
-                border border-slate-800
-                hover:border-indigo-500
-                hover:scale-110
-                transition duration-300
-                w-24
-              "
-            >
-              <div className="text-3xl">{skill.icon}</div>
-              <span className="text-xs text-gray-300 text-center">
-                {skill.name}
-              </span>
-            </div>
-          ))}
-        </motion.div>
+            <motion.div
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true }}
+  variants={{
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  }}
+  className="
+    grid
+    grid-cols-3
+    sm:grid-cols-4
+    md:grid-cols-6
+    gap-6
+    justify-items-center
+  "
+>
+  {skills.map((skill) => (
+    <motion.div
+      key={skill.name}
+      variants={{
+        hidden: { opacity: 0, y: 40, scale: 0.9 },
+        show: { opacity: 1, y: 0, scale: 1 },
+      }}
+      whileHover={{
+        scale: 1.12,
+        y: -6,
+      }}
+      transition={{ type: "spring", stiffness: 200 }}
+      className="
+        group
+        relative
+        flex flex-col items-center gap-2
+        p-4 rounded-2xl
+        bg-slate-900/60
+        border border-slate-800
+        hover:border-indigo-500/60
+        w-24
+        overflow-hidden
+      "
+    >
+      {/* glow effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-indigo-500/10 blur-xl" />
+
+      {/* icon */}
+      <div className="text-3xl relative z-10 group-hover:scale-110 transition">
+        {skill.icon}
+      </div>
+
+      {/* label */}
+      <span className="text-xs text-gray-300 text-center relative z-10">
+        {skill.name}
+      </span>
+    </motion.div>
+  ))}
+</motion.div>
       </div>
     </section>
   )
